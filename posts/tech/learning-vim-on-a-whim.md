@@ -1,7 +1,7 @@
 ---
 title: "Learning Vim on a whim"
 date: '2023-09-23'
-draft: false
+draft: true
 summary: 'My 4 year journey through using Vim'
 tags:
   - vim

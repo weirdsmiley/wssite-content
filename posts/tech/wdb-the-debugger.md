@@ -1,7 +1,7 @@
 ---
 title: "wdb: The Debugger"
 date: '2023-09-17'
-draft: false
+draft: true
 summary: '“I was thinking what if I can make a universal debugger based on a
 standard debugging format, with loads of features, and to automatically initiate
 debugging even before the developer does something themselves.”'
