@@ -14,9 +14,10 @@ author: Manas
 ---
 
 This post contains components for getting _up and running_ with contributing to
-the [LLVM JITLink](https://llvm.org/docs/JITLink.html#jit-linking) project.
-Especially if you cannot get a hands on a Raspberry Pi, you can still go ahead
-(albeit, with some limitations) by emulating the RPi in QEMU.
+the AArch32 backend of [LLVM
+JITLink](https://llvm.org/docs/JITLink.html#jit-linking) project. Especially if
+you cannot get a hands on a Raspberry Pi, you can still go ahead (albeit, with
+some limitations) by emulating the RPi in QEMU.
 
 
 ## Running RPi in QEMU
@@ -30,17 +31,22 @@ information about emulation. There are two ways to emulate RPi in QEMU.
 a way to describe _non-discoverable hardware_.
 The repository consists of various pre-built kernels and device tree files which
 can directly boot an RPi image. Though a pretty straightforward way to emulate,
-it has a caveat which has to do due to an error in the provided devicetree
+it has a caveat due to an error in the provided devicetree
 files. [This issue](https://github.com/dhruvvyas90/qemu-rpi-kernel/issues/82)
 explains how this error limits CPU usage to `1 core` and limits RAM to `256MB`.
 This may be a serious bottleneck for you.
 
-To tackle this limitation, you can otherwise use `native emulation`, which is a
-direct backend support from QEMU to emulate `raspi2b/3b` (and few other boards).
+To avoid this limitation, you can use `native emulation`, which is a direct
+backend support from QEMU to emulate `raspi2b/3b` (and few other boards).
 
 2. Native emulation
 
-QEMU natively provides support for certain [RPi
+Because ARM machines are generally designed as system-on-chip, many peripheral
+details may vary across different machines. QEMU system emulator for ARM
+provides a number of implemented machines. These can be listed via
+`qemu-system-aarch64 -machine help`.
+
+It also provides support for certain [RPi
 boards](https://www.qemu.org/docs/master/system/arm/raspi.html). This backend is
 used along with the pre-built kernel and dtb file. And the image is then run by
 the QEMU backend. Some of the board backends provide upto 4 cores and 1GB of
@@ -89,8 +95,19 @@ card, you must tell QEMU to emulate it.
 The QEMU command will be:
 
 ```bash
+git clone https://github.com/dhruvvyas90/qemu-rpi-kernel.git
+cd qemu-rpi-kernel
+cp native-emulation/5.4.51\ kernels/kernel8.img .
+cp native-emulation/dtbs/bcm2710-rpi-3-b.dtb .
+
+curl -LO https://downloads.raspberrypi.com/raspios_oldstable_armhf/images/raspios_oldstable_armhf-2023-10-10/2023-05-03-raspios-bullseye-armhf.img.xz
+unxz 2023-05-03-raspios-bullseye-armhf.img.xz
+
+qemu-img resize 2023-05-03-raspios-bullseye-armhf.img 8G
+
 qemu-system-aarch64 -m 1024 -M raspi3b -nographic \
-    -kernel kernel8.img -dtb bcm2710-rpi-3-b-plus.dtb -sd <raspios.img> \
+    -kernel kernel8.img -dtb bcm2710-rpi-3-b.dtb \
+    -sd 2023-05-03-raspios-bullseye-armhf.img \
     -append "console=ttyAMA0 root=/dev/mmcblk0p2 rw rootwait rootfstype=ext4" \
     -device usb-net,netdev=net0 -netdev user,id=net0,hostfwd=tcp::5555-:22
 ```
@@ -137,3 +154,6 @@ will have to build appropriate version of glibc which can be another hassle.
 
 Once built, you can copy these binaries over to the RPi via `scp` or similar
 tools.
+
+_I am thankful to Stefan Gränitz
+([Github](https://github.com/weliveindetail/)) for proofreading this blogpost._
