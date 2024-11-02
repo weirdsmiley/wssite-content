@@ -4,7 +4,6 @@ avatar: /img/manas.png
 occupation: Compiler Developer
 company: 
 email: manas18244@iiitd.ac.in
-twitter: https://twitter.com/weirdsmiley_
 linkedin: https://www.linkedin.com/in/weirdsmiley/
 github: https://github.com/weirdsmiley
 mastodon: https://types.pl/@weirdsmiley
