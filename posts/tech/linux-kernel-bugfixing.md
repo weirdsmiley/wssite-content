@@ -21,11 +21,12 @@ module with various functionalities and so on. These tasks were due to shortlist
 candidates for the program. In the program, we had a dedicated Discord server
 for communicating with peers and mentors. I should thank [Shuah Khan][10] and
 [Anup Sharma][11] who were the mentors for this program. I should also thank 
-[Ricardo B. Marliere][12], who was extremely helpful in resolving my doubts
-promptly on the channel. Apart from the Discord folks, I also interacted with
-[Miguel Ojeda][14] on [Zulip][3], and a few other folks on various IRC channels
-([`#mm`][4] and [`#kernelnewbies`][5] in particular). In all, I had an amazing
-experience and everyone involved was super nice and extremely supportive.
+[Ricardo B. Marliere][12] and [Javier Carrasco][13], who were extremely helpful
+in resolving my doubts promptly on the channel. Apart from the Discord folks, I
+also interacted with [Miguel Ojeda][14] on [Zulip][3], and a few other folks on
+various IRC channels ([`#mm`][4] and [`#kernelnewbies`][5] in particular). In
+all, I had an amazing experience and everyone involved was super nice and
+extremely supportive.
 
 Coming to the actual program, we were introduced to various tools that a kernel
 developer may use in their day to day lives. This included cscope, syzkaller, b4
@@ -75,7 +76,7 @@ _If you have any questions for me, head over to this [discussion page][15]._
 [10]: https://en.wikipedia.org/wiki/Shuah_Khan "Shuah Khan - Wikipedia"
 [11]: https://github.com/TwilightTechie "Anup Sharma - Github"
 [12]: https://github.com/rbmarliere "Ricardo B. Marliere - Github"
-[13]: https://github.com/ "Javi - Github"
+[13]: https://github.com/javiercarrascocruz/ "Javier Carrasco - Github"
 [14]: https://github.com/ojeda "Miguel Ojeda - Github"
 [15]: https://github.com/weirdsmiley/wssite-content/discussions/2 "Post discussion"
 
