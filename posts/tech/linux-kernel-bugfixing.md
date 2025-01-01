@@ -59,6 +59,10 @@ an year and is mostly targeted towards newbies.
 
 _If you have any questions for me, head over to this [discussion page][15]._
 
+PS: I have successfully graduated the program.
+
+![Graduating certificate](/posts/linux-kernel-bugfixing-certification.png)
+
 <!-- References -->
 
 [1]: https://mentorship.lfx.linuxfoundation.org/project/a1fc17cf-d75e-4834-8eb0-7652a50b7ab1 "Linux Kernel Bug Fixing Program"
