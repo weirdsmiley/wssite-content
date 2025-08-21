@@ -6,7 +6,7 @@ company:
 email: manas18244@iiitd.ac.in
 linkedin: https://www.linkedin.com/in/weirdsmiley/
 github: https://github.com/weirdsmiley
-mastodon: https://types.pl/@weirdsmiley
+mastodon: https://discuss.systems/@weirdsmiley
 ---
 
 With experience in systems, I combine my passion for compiler development with
